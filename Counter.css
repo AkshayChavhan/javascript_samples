@@ -1,0 +1,41 @@
+.wrapper{
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+    border-radius: 1rem;
+    border: 2px red solid;
+}
+.display{
+    background-color: black;
+    color:white;
+    width: 40rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration:solid;
+    /* border-radius : top 1em; */
+}
+
+.display > span {
+    font-size: 3rem;
+}
+
+.controls{
+    background-color: aquamarine;
+    display: flex;
+}
+
+.btn{
+    height: 2.5rem;
+    width: 5rem;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.9rem;
+    background-color: aqua;
+    text-align: center;
+    padding-top: 1.3rem;
+    border: 1px white solid;
+    border-radius: 0.7rem;
+    font-size: 1.2rem;
+}

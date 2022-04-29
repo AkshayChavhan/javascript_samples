@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Counter.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="display">
+                <span id="hh">hh</span> hour
+                <span id="mm">mm</span>minutes
+                <span id="ss">ss</span>second
+                <span id="ms">msms</span>milliseconds</div>
+            <div class="controls">
+                <button class="btn btn-1" onclick="handleStartBtn()">Start</button>
+                <button class="btn btn-2" onclick="handleStop()">Stop</button>
+                <button class="btn btn-3" onclick="handlePause()">Pause</button>
+                <button class="btn btn-4" onclick="handleReset()">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btnstart = document.getElementsByClassName("btn-1");
+        const btnstop = document.getElementsByClassName("btn-2");
+        const btnpause = document.getElementsByClassName("btn-3");
+        const btnreset = document.getElementsByClassName("btn-4");
+        const display = document.getElementsByClassName("display");
+        const millis = document.getElementById("ms");
+        const sec = document.getElementById("ss");
+        const hour = document.getElementById("hh");
+        const min = document.getElementById("mm");
+
+        let hh = 0;
+        let mm = 0;
+        let ss = 0;
+        let msms = 0;
+
+        let timer = false;
+
+        
+        const stopwatch =() =>{
+            if(timer == true ){
+                msms = msms + 1 ;
+                if(msms == 100 ){
+                    msms = 0 ;
+                    ss = ss + 1 ;
+                }
+                if(ss == 60 ){
+                    mm = mm + 1 ;
+                    ss = 0 ;
+                }
+                if( mm == 60 ){
+                    hh = hh + 1 ;
+                    mm = 0 ;
+                    ss = 0 ;
+                }
+
+                document.getElementById("ms").innerHTML = msms ;
+                document.getElementById("ss").innerHTML = ss ;
+                document.getElementById("hh").innerHTML = hh ;
+                document.getElementById("mm").innerHTML = mm ;
+                setTimeout(()=> stopwatch(),10);
+            }
+        }
+            const handleStartBtn = () => {
+                    timer = true ;
+                    stopwatch();
+            }
+
+            const handleStop = () =>{
+                timer =false ;
+                stopwatch();
+            }
+
+            const handlePause =() =>{
+                timer = false;
+                stopwatch();
+            }
+
+            const handleReset =() =>{
+                msms = 0 ;
+                ss = 0 ;
+                hh = 0 ;
+                mm = 0 ;
+                // document.getElementById("ms").innerHTML = "00" ;
+                // document.getElementById("ss").innerHTML = "00" ;
+                // document.getElementById("hh").innerHTML = "00" ;
+                // document.getElementById("mm").innerHTML = "00" ; 
+            }
+
+
+        </script>
+    
+</body>
+</html>
